@@ -6,8 +6,11 @@ Just clone it, and use it!
 Here's the example code of how you could use it :
 
 ```python
-import numpy as np
-
-batch = np.load(file_path)
-X, Y = batch[:, 1:], batch[:, 0]
+ def load_data(file_name):
+    with open(file_name, 'rb') as file:
+      unpickler = pickle._Unpickler(file)
+      unpickler.encoding = 'latin1'
+      contents = unpickler.load()
+      X, Y = contents['data'], contents['labels']
+      return np.asarray(X), np.asarray(Y)
 ```
