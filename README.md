@@ -9,7 +9,7 @@ Here's the example code of how you could use it :
 import pickle
 import numpy as np
 
-def load_data(self, file_name):
+def load_data(file_name):
   with open(file_name, 'rb') as file:
     unpickler = pickle._Unpickler(file)
     unpickler.encoding = 'latin1'
